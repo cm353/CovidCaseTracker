@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">CovidCaseTracker</string>
+    <string name="country">Land: %1s</string>
+    <string name="cases_total">Fälle ges: %1s</string>
+    <string name="cases_new">Fälle neu: %1s</string>
+    <string name="deceased_total">Tote ges: %1s</string>
+    <string name="recovered_total">Genesen: %1s</string>
+    <string name="cfr">CFR: %1$.2f %%</string>
+</resources>
