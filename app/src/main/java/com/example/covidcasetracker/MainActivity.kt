@@ -4,11 +4,14 @@ import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.foundation.Image
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.covidcasetracker.ui.theme.CovidCaseTrackerTheme
 import com.example.covidcasetracker.viewmodel.CovidViewModel
@@ -24,7 +27,7 @@ import com.example.covidcasetracker.screens.Home
 
 class MainActivity : AppCompatActivity() {
 
-    val _viewModel: CovidViewModel by viewModels()
+//    val _viewModel: CovidViewModel by viewModels()
 
   
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,17 +36,10 @@ class MainActivity : AppCompatActivity() {
             CovidCaseTrackerTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    AppNavigation(_viewModel = _viewModel)
+                    AppNavigation()
                 }
             }
         }
-        _viewModel.getAll()
+//        _viewModel.getAll()
     }
 }
-
-
-
-
-
-
-

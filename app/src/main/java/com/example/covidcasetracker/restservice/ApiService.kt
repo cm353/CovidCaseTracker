@@ -1,4 +1,4 @@
-package com.example.covidcasetracker.restService
+package com.example.covidcasetracker.restservice
 
 import android.util.Log
 import androidx.lifecycle.MutableLiveData

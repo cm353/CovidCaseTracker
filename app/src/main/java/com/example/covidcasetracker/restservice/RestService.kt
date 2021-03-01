@@ -1,4 +1,4 @@
-package com.example.covidcasetracker.restService
+package com.example.covidcasetracker.restservice
 
 import com.example.mycomposeapplication.TopLevelWrapper
 import retrofit2.Call

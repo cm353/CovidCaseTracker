@@ -2,7 +2,7 @@ package com.example.covidcasetracker.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.example.covidcasetracker.restService.ApiService
+import com.example.covidcasetracker.restservice.ApiService
 import com.example.mycomposeapplication.Country
 import com.example.mycomposeapplication.Global
 

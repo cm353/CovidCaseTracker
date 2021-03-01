@@ -10,13 +10,13 @@ import com.example.covidcasetracker.viewmodel.CovidViewModel
 
 // Nav graph of this app
 @Composable
-fun AppNavigation(_viewModel: CovidViewModel) {
+fun AppNavigation() {
 
     val navController = rememberNavController()
 
     NavHost(navController = navController, startDestination = "home") {
         composable("home") {
-            Home(_viewModel = _viewModel, navController)
+            Home( navController)
         }
         composable(
             "taskDetail/{country}",
