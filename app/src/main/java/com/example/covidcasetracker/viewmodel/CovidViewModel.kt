@@ -5,10 +5,13 @@ import androidx.lifecycle.ViewModel
 import com.example.covidcasetracker.restservice.ApiService
 import com.example.mycomposeapplication.Country
 import com.example.mycomposeapplication.Global
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class CovidViewModel : ViewModel() {
+@HiltViewModel
+class CovidViewModel @Inject constructor(private val repository: ApiService) : ViewModel() {
 
-    private val repository = ApiService()
+//    private val repository = ApiService()
 
     private val globaldata = repository.globalData
     val _globalData: LiveData<Global> = globaldata

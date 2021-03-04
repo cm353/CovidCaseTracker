@@ -23,11 +23,12 @@ import androidx.navigation.compose.rememberNavController
 import com.example.covidcasetracker.screens.AppNavigation
 import com.example.covidcasetracker.screens.DetailScreen
 import com.example.covidcasetracker.screens.Home
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
-//    val _viewModel: CovidViewModel by viewModels()
+    val _viewModel: CovidViewModel by viewModels()
 
   
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,7 +37,7 @@ class MainActivity : AppCompatActivity() {
             CovidCaseTrackerTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    AppNavigation()
+                    AppNavigation(_viewModel)
                 }
             }
         }

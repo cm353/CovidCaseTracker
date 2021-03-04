@@ -10,19 +10,23 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class ApiService {
+@Singleton
+class ApiService @Inject constructor(private val service: RestService) {
+
     companion object {
         const val BASE_URL = "https://api.covid19api.com/"
         const val TAG = "ApiService"
     }
 
-    val retrofit = Retrofit.Builder()
-        .baseUrl(BASE_URL)
-        .addConverterFactory(GsonConverterFactory.create())
-        .build()
-
-    val service = retrofit.create(RestService::class.java)
+//    val retrofit = Retrofit.Builder()
+//        .baseUrl(BASE_URL)
+//        .addConverterFactory(GsonConverterFactory.create())
+//        .build()
+//
+//    val service = retrofit.create(RestService::class.java)
 
     val globalData = MutableLiveData<Global>()
     val localData = MutableLiveData<List<Country>>()

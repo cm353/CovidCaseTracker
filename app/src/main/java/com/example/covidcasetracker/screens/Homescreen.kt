@@ -31,8 +31,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 
 @Composable
-fun Home(cont: NavController) {
-    val _viewModel: CovidViewModel = viewModel()
+fun Home(cont: NavController, _viewModel: CovidViewModel) {
+//    val _viewModel: CovidViewModel = viewModel()
     // imports for observing livedata:
     //import androidx.compose.runtime.livedata.observeAsState
     //import androidx.compose.runtime.getValue
