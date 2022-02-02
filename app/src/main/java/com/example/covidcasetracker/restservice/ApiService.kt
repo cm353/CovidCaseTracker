@@ -5,6 +5,10 @@ import androidx.lifecycle.MutableLiveData
 import com.example.mycomposeapplication.Country
 import com.example.mycomposeapplication.Global
 import com.example.mycomposeapplication.TopLevelWrapper
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -37,8 +41,7 @@ class ApiService @Inject constructor(private val service: RestService) {
     fun getDataFromInternet() {
         val call = service.getAll()
         // Async call
-        call.let {
-            it.enqueue(object : Callback<TopLevelWrapper> {
+        call.enqueue(object : Callback<TopLevelWrapper> {
                 override fun onResponse(call: Call<TopLevelWrapper>, response: Response<TopLevelWrapper>) {
                     val topLevelWrapperObject = response.body()
                     topLevelWrapperObject?.let { data : TopLevelWrapper ->
@@ -48,25 +51,27 @@ class ApiService @Inject constructor(private val service: RestService) {
                         for (entry in data.counties) {
                             Log.d(TAG, "onResponse Country: ${entry}")
                         }
-
-                        onResponseEvent?.let {
-                            it.invoke("${data.global}")
-                        }
-
+                        onResponseEvent?.invoke("${data.global}")
                     }
-
                 }
 
                 override fun onFailure(call: Call<TopLevelWrapper>, t: Throwable?) {
                     Log.e(TAG, "onFailure: $t", t)
 
-                    onResponseEvent?.let {
-                        it.invoke("Connection Error\n ${t?.localizedMessage}")
-                    }
+                    onResponseEvent?.invoke("Connection Error\n ${t?.localizedMessage}")
                 }
-            })
-        } ?: run {
-            Log.d(TAG, "call object null")
-        }
+            }
+        )
+    }
+
+    fun getDataAsFlow(): Flow<TopLevelWrapper> {
+        return flow {
+            // exectute API call and map to UI object
+            val fooList = service.getTest()
+
+
+            // Emit the list to the stream
+            emit(fooList)
+        }.flowOn(Dispatchers.IO) // Use the IO thread for this Flow
     }
 }

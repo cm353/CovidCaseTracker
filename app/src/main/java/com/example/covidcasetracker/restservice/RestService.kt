@@ -9,4 +9,7 @@ interface RestService {
     @GET("summary")
     fun getAll() : Call<TopLevelWrapper>
 
+    @GET("summary")
+    fun getTest() : TopLevelWrapper
+
 }

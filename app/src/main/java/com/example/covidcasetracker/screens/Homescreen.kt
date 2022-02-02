@@ -19,7 +19,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import androidx.navigation.compose.navigate
 import com.example.covidcasetracker.R
 import com.example.covidcasetracker.ui.theme.Purple200
 import com.example.covidcasetracker.utilFunctions.UtilFunctions
